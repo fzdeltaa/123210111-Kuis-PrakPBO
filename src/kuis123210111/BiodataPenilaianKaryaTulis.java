@@ -349,12 +349,18 @@ public class BiodataPenilaianKaryaTulis extends javax.swing.JFrame {
             double eyd = Double.parseDouble(jTextField4.getText());
             double struktur = Double.parseDouble(jTextField6.getText());
             double kreativitas = Double.parseDouble(jTextField7.getText());
-
-            nilai = bahasa*0.15+eyd*0.35+struktur*0.25+kreativitas*0.25;
-
-            HasilPenilaian hasil1 = new HasilPenilaian(nama,jurusan,nim,nilai);
-            dispose();
-            hasil1.setVisible(true);
+            
+            
+            if(nama.equals("")||jurusan.equals("")||nim.equals("")) {
+                JOptionPane.showMessageDialog(null, "Belum Lengkap", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else {
+                nilai = bahasa*0.15+eyd*0.35+struktur*0.25+kreativitas*0.25;
+                HasilPenilaian hasil1 = new HasilPenilaian(nama,jurusan,nim,nilai);
+                dispose();
+                hasil1.setVisible(true);
+            }
+            
         }
         catch (Exception eror) {
             JOptionPane.showMessageDialog(null, eror.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

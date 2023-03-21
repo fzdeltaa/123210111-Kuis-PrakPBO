@@ -5,6 +5,7 @@
  */
 package kuis123210111;
 
+import javax.print.DocFlavor;
 import javax.swing.JOptionPane;
 
 /**
@@ -338,6 +339,7 @@ public class BiodataPenilaianPuisi extends javax.swing.JFrame {
         KategoriLomba kategori3 = new KategoriLomba();
         dispose();
         kategori3.setVisible(true);
+        //comit
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -346,18 +348,24 @@ public class BiodataPenilaianPuisi extends javax.swing.JFrame {
             String nama = jTextField1.getText();
             String jurusan = jTextField2.getText();
             String nim = jTextField3.getText();
-
+               
             double nilai;
             double keindahan = Double.parseDouble(jTextField5.getText());
             double eyd = Double.parseDouble(jTextField4.getText());
             double struktur = Double.parseDouble(jTextField6.getText());
             double kreativitas = Double.parseDouble(jTextField7.getText());
 
-            nilai = keindahan*0.15+eyd*0.35+struktur*0.25+kreativitas*0.25;
-
-            HasilPenilaian hasil1 = new HasilPenilaian(nama,jurusan,nim,nilai);
-            dispose();
-            hasil1.setVisible(true);
+            
+            if(nama.equals("")||jurusan.equals("")||nim.equals("")) {
+                JOptionPane.showMessageDialog(null, "Belum Lengkap", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                nilai = keindahan*0.15+eyd*0.35+struktur*0.25+kreativitas*0.25;
+                HasilPenilaian hasil1 = new HasilPenilaian(nama,jurusan,nim,nilai);
+                dispose();
+                hasil1.setVisible(true);
+            }
+            
         } catch (Exception eror) {
             JOptionPane.showMessageDialog(null, eror.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
