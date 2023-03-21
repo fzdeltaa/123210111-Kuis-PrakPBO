@@ -360,7 +360,7 @@ public class BiodataPenilaianPuisi extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Belum Lengkap", "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
-                nilai = keindahan*0.15+eyd*0.35+struktur*0.25+kreativitas*0.25;
+                nilai = keindahan*0.30+eyd*0.20+struktur*0.20+kreativitas*0.30;
                 HasilPenilaian hasil1 = new HasilPenilaian(nama,jurusan,nim,nilai);
                 dispose();
                 hasil1.setVisible(true);
